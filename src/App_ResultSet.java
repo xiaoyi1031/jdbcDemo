@@ -28,6 +28,10 @@ public class App_ResultSet {
             //get the result set
             myRs = myStmt.getResultSet();
 
+            if(myRs != null){
+                System.out.println("here");
+            }
+
             System.out.print("Finished calling stored procudure");
         }catch (Exception e){
             e.printStackTrace();

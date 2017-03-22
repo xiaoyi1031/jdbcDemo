@@ -26,6 +26,9 @@ public class App_inout {
             System.out.println("Calling stored procedure");
             myStmt.execute();
             System.out.print("Finished calling stored procudure");
+
+            String theResult = myStmt.getString(1);
+            System.out.println("The result is : " +theResult);
         }catch (Exception e){
             e.printStackTrace();
         }
