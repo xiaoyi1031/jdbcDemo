@@ -3,12 +3,12 @@ import java.sql.Connection;
 import java.sql.Types;
 
 public class App_out {
-    public static void main(String[] arg){
+    public static void main(String[] arg) {
 
         Connection myConn;
         CallableStatement myStmt;
 
-        try{
+        try {
             //get connection to database
             myConn = ConnectionConfig.getConnection();
             String theDepartment = "Engineering";
@@ -17,7 +17,7 @@ public class App_out {
             myStmt = myConn.prepareCall("{call get_count_for_department(?,?)}");
 
             //set Parameters
-            myStmt.setString(1,"Engineering");
+            myStmt.setString(1, "Engineering");
             myStmt.registerOutParameter(2, Types.INTEGER);
 
             //call stored procedured
@@ -26,7 +26,7 @@ public class App_out {
             int theCount = myStmt.getInt(2);
             System.out.println("The count =" + theCount);
             System.out.print("Finished calling stored procudure");
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

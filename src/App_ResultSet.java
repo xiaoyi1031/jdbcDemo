@@ -4,13 +4,13 @@ import java.sql.ResultSet;
 import java.sql.Types;
 
 public class App_ResultSet {
-    public static void main(String[] arg){
+    public static void main(String[] arg) {
 
         Connection myConn;
         CallableStatement myStmt;
         ResultSet myRs;
 
-        try{
+        try {
             //get connection to database
             myConn = ConnectionConfig.getConnection();
             String theDepartment = "Engineering";
@@ -28,12 +28,12 @@ public class App_ResultSet {
             //get the result set
             myRs = myStmt.getResultSet();
 
-            if(myRs != null){
+            if (myRs != null) {
                 System.out.println("here");
             }
 
             System.out.print("Finished calling stored procudure");
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

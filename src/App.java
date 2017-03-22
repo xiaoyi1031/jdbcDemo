@@ -10,22 +10,21 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class App {
-    public static void main(String[] arg){
+    public static void main(String[] arg) {
         Connection connection = null;
-        try{
+        try {
             connection = ConnectionConfig.getConnection();
-            if(connection != null)
-            {
+            if (connection != null) {
                 System.out.println("Connection established");
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             if (connection != null) {
 
                 try {
                     connection.close();
-                } catch (SQLException e){
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }

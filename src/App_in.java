@@ -3,16 +3,15 @@ import java.sql.Connection;
 import java.sql.Types;
 
 public class App_in {
-    public static void main(String[] arg){
+    public static void main(String[] arg) {
 
         Connection myConn;
         CallableStatement myStmt;
 
-        try{
+        try {
             //get connection to database
             myConn = ConnectionConfig.getConnection();
-            if(myConn != null)
-            {
+            if (myConn != null) {
                 System.out.println("Connection established");
             }
             String theDepartment = "Engineering";
@@ -21,14 +20,14 @@ public class App_in {
             myStmt = myConn.prepareCall("{call increase_salaries_for_department(?,?)}");
 
             //set Parameters
-            myStmt.setString(1,theDepartment);
+            myStmt.setString(1, theDepartment);
             myStmt.setDouble(2, 1000);
 
             //call stored procedured
             System.out.println("Calling stored procedure");
             myStmt.execute();
             System.out.print("Finished calling stored procudure");
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
